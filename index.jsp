@@ -205,13 +205,16 @@
 
     <div class="main">
         <h2>Explore Our Vast Library</h2>
-        <a class="link" href="register.jsp">Sign Up</a>
-        <a class="link" href="searchBook.jsp">Search Books</a>
+        <a class="link" href="register.jsp">회원가입</a>
+        <a class="link" href="searchBook.jsp">책 검색</a>
         <%
             if (loggedInUser != null) {
         %>
-        <a class="link" href="addBook.jsp">Add Book</a>
+        <a class="link" href="addBook.jsp">책 추가</a>
+
         <a class="link" href="viewMyBooks.jsp">내가 등록한 책 보기</a>
+        <a class="link" href="borrowBook.jsp">책 대출</a>
+        <a class="link" href="viewBorrowedBooks.jsp">대출한 책 보기</a>
         <%
             }
         %>
@@ -231,7 +234,7 @@
                         conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
                         stmt = conn.createStatement();
 
-                        String sql = "SELECT title, author FROM Books123 ORDER BY id";
+                        String sql = "SELECT title, author FROM Books123 WHERE status = 'available' ORDER BY id";
                         rs = stmt.executeQuery(sql);
 
                         while (rs.next()) {

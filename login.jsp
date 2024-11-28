@@ -1,47 +1,60 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.sql.*" %>
-<%
-    // 사용자 입력 가져오기
-    String username = request.getParameter("username");
-    String password = request.getParameter("password");
-
-    // 데이터베이스 연결 정보
-    String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=LibraryDB;encrypt=true;trustServerCertificate=true;";
-    String dbUser = "minseokgo";
-    String dbPass = "kms58325832@";
-
-    Connection conn = null;
-    PreparedStatement pstmt = null;
-    ResultSet rs = null;
-
-    try {
-        // 데이터베이스 연결
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        conn = DriverManager.getConnection(dbURL, dbUser, dbPass);
-
-        // SQL 쿼리로 사용자 인증
-        String sql = "SELECT * FROM Users WHERE username = ? AND password = ?";
-        pstmt = conn.prepareStatement(sql);
-        pstmt.setString(1, username);
-        pstmt.setString(2, password);
-
-        rs = pstmt.executeQuery();
-
-        if (rs.next()) {
-            // 로그인 성공: 세션 생성 및 리다이렉트
-            session.setAttribute("username", username);
-            response.sendRedirect("index.jsp");
-        } else {
-            // 로그인 실패: 메시지 출력
-            out.println("<script>alert('로그인 실패: 사용자 이름 또는 비밀번호를 확인하세요.'); history.back();</script>");
+<!DOCTYPE html>
+<html>
+<head>
+    <title>로그인</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
         }
-    } catch (Exception e) {
-        out.println("<script>alert('오류 발생: " + e.getMessage() + "'); history.back();</script>");
-        e.printStackTrace();
-    } finally {
-        // 리소스 정리
-        if (rs != null) try { rs.close(); } catch (SQLException ignore) {}
-        if (pstmt != null) try { pstmt.close(); } catch (SQLException ignore) {}
-        if (conn != null) try { conn.close(); } catch (SQLException ignore) {}
-    }
-%>
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>로그인</h2>
+        <form action="loginUser.jsp" method="post">
+            <input type="text" name="username" placeholder="사용자 이름" required />
+            <input type="password" name="password" placeholder="비밀번호" required />
+            <button type="submit">로그인</button>
+        </form>
+    </div>
+</body>
+</html>
