@@ -61,7 +61,7 @@
 ### 1. 메인 화면 및 조회 기능
 | 메인 화면 | 회원가입 화면 |
 |-----------|----------------|
-| ![메인 화면](https://github.com/user-attachments/assets/6bf7c99f-46b6-46cb-b554-8b1080ed4b26) | ![회원가입 화면](https://github.com/user-attachments/assets/signup.jpg) |
+| ![메인 화면](https://github.com/user-attachments/assets/6bf7c99f-46b6-46cb-b554-8b1080ed4b26) |
 
 ### 2. 회원 가입 및 로그인 기능
 | 회원 가입 | 로그인 화면 |
