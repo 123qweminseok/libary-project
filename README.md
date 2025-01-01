@@ -66,7 +66,7 @@
 ### 2. 회원 가입 및 로그인 기능
 | 회원 가입 | 로그인 화면 |
 |-----------|--------------|
-| ![회원 가입](https://github.com/user-attachments/assets/55ce6f97-dbd3-4ad5-b0ed-7c1a83b7070b) | ![로그인 화면](https://github.com/user-attachments/assets/55ce6f97-dbd3-4ad5-b0ed-7c1a83b7070b) |
+| ![회원 가입](https://github.com/user-attachments/assets/55ce6f97-dbd3-4ad5-b0ed-7c1a83b7070b) | ![로그인 화면](https://github.com/user-attachments/assets/1f512b21-080c-4612-a607-23903474e286) |
 
 ### 3. 도서 관리 및 검색 기능
 | 도서 검색 | 도서 추가 |
