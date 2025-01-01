@@ -110,10 +110,6 @@
 ---
 
 ### 10. 내가 대출한 책 조회 기능
-<div align="center">
-<img src="https://github.com/user-attachments/assets/57a86683-caf0-4305-b670-8196e227d8c9" alt="대출 책 조회" width="400">
-</div>
-### 5. 대출 이력 및 대출 책 조회
 <table>
   <tr>
     <td align="center">
